@@ -1,14 +1,14 @@
 # FMDEV
 Msc. Project from Universidade de Pernambuco
 
-## Running Project - Backend
+## Backend
 ```
 cd server
 pip install -r requirements
 python run.py
 ```
 
-## Running Project - Frontend
+## Frontend
 ```
 cd client
 npm install
