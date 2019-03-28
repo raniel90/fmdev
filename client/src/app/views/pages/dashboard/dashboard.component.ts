@@ -1,5 +1,5 @@
 // Angular
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 // Lodash
 import { shuffle } from 'lodash';
 // Services
@@ -24,6 +24,11 @@ export class DashboardComponent implements OnInit {
 	widget4_3: Widget4Data;
 	widget4_4: Widget4Data;
 
+	scatterplotFilter = {
+		feature_x: '',
+		feature_y: ''
+	};
+
 	boxplotGraph = {
 		data: [],
 		layout: { title: '' }
@@ -34,9 +39,12 @@ export class DashboardComponent implements OnInit {
 		layout: { title: '' }
 	};
 
+	graphLabels = [];
+
 	constructor(
 		private layoutConfigService: LayoutConfigService,
-		private dashboardService: DashboardService
+		private dashboardService: DashboardService,
+		private changeDetectorRefs: ChangeDetectorRef
 	) {
 	}
 
@@ -210,23 +218,45 @@ export class DashboardComponent implements OnInit {
 			},
 		]);
 
-		this.listBoxplots();
-		this.listScatterplots();
+		this.listGraphLabels();
 	}
 
-	async listBoxplots() {
-		let boxplots: any = await this.dashboardService.listsBoxplots();
-		
+	async listBoxplots($event) {
+		const filter = {
+			feature: $event.value
+		};
+
+		let boxplots: any = await this.dashboardService.listsBoxplots(filter);
+
 		if (boxplots && boxplots.data) {
 			this.boxplotGraph.data = boxplots.data;
 		}
+
+		this.changeDetectorRefs.detectChanges();
 	}
 
 	async listScatterplots() {
-		let scatterplots: any = await this.dashboardService.listScatterplots();
-		
+		let scatterplots: any;
+
+		if (!this.scatterplotFilter.feature_x || !this.scatterplotFilter.feature_y) {
+			return;
+		}
+
+		scatterplots = await this.dashboardService.listScatterplots(this.scatterplotFilter);
+
 		if (scatterplots && scatterplots.data) {
 			this.scatterplotGraph.data = scatterplots.data;
 		}
+
+		this.changeDetectorRefs.detectChanges();
 	}
+
+	async listGraphLabels() {
+		let labels: any = await this.dashboardService.listGraphLabels();
+		if (labels && labels.data) {
+			this.graphLabels = labels.data;
+		}
+	}
+
+
 }

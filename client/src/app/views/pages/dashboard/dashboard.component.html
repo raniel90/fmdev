@@ -6,7 +6,20 @@
 					<kt-context-menu2></kt-context-menu2>
 				</ng-container>
 			</kt-portlet-header>
+
 			<kt-portlet-body>
+				<div class="col-xl-3">
+					<mat-form-field>
+						<mat-select (selectionChange)="listBoxplots($event)" placeholder="X">
+							<mat-option *ngFor="let label of graphLabels" [value]="label.value">
+								{{ label.value }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+			</kt-portlet-body>
+
+			<kt-portlet-body *ngIf="boxplotGraph.data.length">
 				<plotly-plot [data]="boxplotGraph.data" [layout]="boxplotGraph.layout"></plotly-plot>
 			</kt-portlet-body>
 		</kt-portlet>
@@ -21,7 +34,28 @@
 					<kt-context-menu2></kt-context-menu2>
 				</ng-container>
 			</kt-portlet-header>
+
 			<kt-portlet-body>
+				<div class="col-xl-6">
+					<mat-form-field>
+						<mat-select (selectionChange)="listScatterplots()" [(ngModel)]="scatterplotFilter.feature_x" placeholder="X">
+							<mat-option *ngFor="let label of graphLabels" [value]="label.value">
+								{{ label.value }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+					<mat-form-field>
+						<mat-select (selectionChange)="listScatterplots()" [(ngModel)]="scatterplotFilter.feature_y" placeholder="Y">
+							<mat-option *ngFor="let label of graphLabels" [value]="label.value">
+								{{ label.value }}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+			</kt-portlet-body>
+
+			<kt-portlet-body *ngIf="scatterplotGraph.data.length">
 				<plotly-plot [data]="scatterplotGraph.data" [layout]="scatterplotGraph.layout"></plotly-plot>
 			</kt-portlet-body>
 		</kt-portlet>

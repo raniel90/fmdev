@@ -9,16 +9,22 @@ const BASE_URL = `${environment.baseUrl}`;
 export class DashboardService {
 	constructor(private http: HttpClient, private httpUtils: HttpUtilsService) { }
 
-	listsBoxplots() {
+	listsBoxplots(filter) {
 		const options = this.httpUtils.getHTTPHeaders();
 
-		return this.http.get(`${BASE_URL}/boxplot`, { headers: options }).toPromise();
+		return this.http.post(`${BASE_URL}/boxplot`, filter, { headers: options }).toPromise();
 	}
 
-	listScatterplots() {
+	listScatterplots(filter) {
 		const options = this.httpUtils.getHTTPHeaders();
 
-		return this.http.get(`${BASE_URL}/scatterplot`, { headers: options }).toPromise();
+		return this.http.post(`${BASE_URL}/scatterplot`, filter, { headers: options }).toPromise();
+	}
+
+	listGraphLabels() {
+		const options = this.httpUtils.getHTTPHeaders();
+
+		return this.http.get(`${BASE_URL}/data-frame-labels`, { headers: options }).toPromise();
 	}
 
 	create(data) {

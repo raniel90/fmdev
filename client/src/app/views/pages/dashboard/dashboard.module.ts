@@ -9,6 +9,8 @@ import { CoreModule } from '../../../core/core.module';
 import { PartialsModule } from '../../partials/partials.module';
 import { DashboardComponent } from './dashboard.component';
 import { PlotlyModule } from 'angular-plotly.js';
+import { MatSelectModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 	imports: [
@@ -17,6 +19,8 @@ import { PlotlyModule } from 'angular-plotly.js';
 		CoreModule,
 		NgbModule,
 		PlotlyModule,
+		MatSelectModule,
+		FormsModule,
 		RouterModule.forChild([
 			{
 				path: '',
