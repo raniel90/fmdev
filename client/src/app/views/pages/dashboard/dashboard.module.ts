@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoreModule } from '../../../core/core.module';
 import { PartialsModule } from '../../partials/partials.module';
 import { DashboardComponent } from './dashboard.component';
+import { PlotlyModule } from 'angular-plotly.js';
 
 @NgModule({
 	imports: [
@@ -15,6 +16,7 @@ import { DashboardComponent } from './dashboard.component';
 		PartialsModule,
 		CoreModule,
 		NgbModule,
+		PlotlyModule,
 		RouterModule.forChild([
 			{
 				path: '',

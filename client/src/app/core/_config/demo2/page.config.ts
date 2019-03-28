@@ -3,7 +3,7 @@ export class PageConfig {
 		dashboard: {
 			page: {
 				'title': 'Dashboard',
-				'desc': 'Latest updates and statistic charts'
+				'desc': 'Informações Analíticas'
 			},
 		},
 		ngbootstrap: {

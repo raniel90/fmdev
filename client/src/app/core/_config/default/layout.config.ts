@@ -10,10 +10,13 @@ export class LayoutConfig {
 				'background-image': './assets/media/misc/bg-1.jpg',
 			},
 			'logo': {
-				'dark': './assets/media/logos/logo-light.png',
+				// 'dark': './assets/media/logos/logo-light.png',
 				'light': './assets/media/logos/logo-dark.png',
-				'brand': './assets/media/logos/logo-light.png',
-				'green': './assets/media/logos/logo-light.png',
+				// 'brand': './assets/media/logos/logo-light.png',
+				// 'green': './assets/media/logos/logo-light.png',
+				'dark': './assets/media/logos/logo-fmdev.png',
+				'green': './assets/media/logos/logo-fmdev.png',
+				'brand': './assets/media/logos/logo-fmdev.png'
 			}
 		},
 		// == Portlet Plugin

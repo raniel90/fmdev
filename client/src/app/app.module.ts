@@ -52,6 +52,8 @@ import * as typescript from 'highlight.js/lib/languages/typescript';
 import * as scss from 'highlight.js/lib/languages/scss';
 import * as xml from 'highlight.js/lib/languages/xml';
 import * as json from 'highlight.js/lib/languages/json';
+// Plotly
+import { PlotlyModule } from 'angular-plotly.js';
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -102,7 +104,8 @@ export function hljsLanguages(): HighlightLanguage[] {
 		NgbModule,
 		TranslateModule.forRoot(),
 		MatProgressSpinnerModule,
-		InlineSVGModule.forRoot()
+		InlineSVGModule.forRoot(),
+		PlotlyModule
 	],
 	exports: [],
 	providers: [

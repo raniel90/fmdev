@@ -23,6 +23,14 @@ export class DashboardComponent implements OnInit {
 	widget4_3: Widget4Data;
 	widget4_4: Widget4Data;
 
+	public graph = {
+        data: [
+            { x: [1, 2, 3], y: [2, 6, 3], type: 'box', mode: 'lines+points', marker: {color: 'red'} },
+            { x: [1, 2, 3], y: [2, 5, 3], type: 'box' },
+        ],
+        layout: { title: '' }
+    };
+
 	constructor(private layoutConfigService: LayoutConfigService) {
 	}
 
