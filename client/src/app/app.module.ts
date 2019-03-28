@@ -54,6 +54,7 @@ import * as xml from 'highlight.js/lib/languages/xml';
 import * as json from 'highlight.js/lib/languages/json';
 // Plotly
 import { PlotlyModule } from 'angular-plotly.js';
+import { DashboardService } from './core/services/dashboard.service';
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -117,6 +118,7 @@ export function hljsLanguages(): HighlightLanguage[] {
 		KtDialogService,
 		DataTableService,
 		SplashScreenService,
+		DashboardService,
 		{
 			provide: PERFECT_SCROLLBAR_CONFIG,
 			useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG

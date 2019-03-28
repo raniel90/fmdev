@@ -7,6 +7,7 @@ import { LayoutConfigService } from '../../../core/_base/layout';
 // Widgets model
 import { SparklineChartOptions } from '../../../core/_base/metronic';
 import { Widget4Data } from '../../partials/content/widgets/widget4/widget4.component';
+import { DashboardService } from '../../../core/services/dashboard.service';
 
 @Component({
 	selector: 'kt-dashboard',
@@ -23,15 +24,20 @@ export class DashboardComponent implements OnInit {
 	widget4_3: Widget4Data;
 	widget4_4: Widget4Data;
 
-	public graph = {
-        data: [
-            { x: [1, 2, 3], y: [2, 6, 3], type: 'box', mode: 'lines+points', marker: {color: 'red'} },
-            { x: [1, 2, 3], y: [2, 5, 3], type: 'box' },
-        ],
-        layout: { title: '' }
-    };
+	boxplotGraph = {
+		data: [],
+		layout: { title: '' }
+	};
 
-	constructor(private layoutConfigService: LayoutConfigService) {
+	scatterplotGraph = {
+		data: [],
+		layout: { title: '' }
+	};
+
+	constructor(
+		private layoutConfigService: LayoutConfigService,
+		private dashboardService: DashboardService
+	) {
 	}
 
 	ngOnInit(): void {
@@ -203,5 +209,24 @@ export class DashboardComponent implements OnInit {
 				valueColor: 'kt-font-brand'
 			},
 		]);
+
+		this.listBoxplots();
+		this.listScatterplots();
+	}
+
+	async listBoxplots() {
+		let boxplots: any = await this.dashboardService.listsBoxplots();
+		
+		if (boxplots && boxplots.data) {
+			this.boxplotGraph.data = boxplots.data;
+		}
+	}
+
+	async listScatterplots() {
+		let scatterplots: any = await this.dashboardService.listScatterplots();
+		
+		if (scatterplots && scatterplots.data) {
+			this.scatterplotGraph.data = scatterplots.data;
+		}
 	}
 }

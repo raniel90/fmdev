@@ -10,7 +10,7 @@ const routes: Routes = [
 	// {path: '', loadChildren: 'app/views/themes/default/theme.module#ThemeModule'},
 
 	/** START: remove this themes list on production */
-	{path: '', redirectTo: 'default', pathMatch: 'full'},
+	{path: '', redirectTo: 'demo2', pathMatch: 'full'},
 	// list of routers specified by demos, for demo purpose only!
 	{path: 'default', loadChildren: 'app/views/themes/default/theme.module#ThemeModule'},
 	{path: 'demo2', loadChildren: 'app/views/themes/demo2/theme.module#ThemeModule'},

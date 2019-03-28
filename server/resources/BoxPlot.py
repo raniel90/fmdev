@@ -11,6 +11,6 @@ class BoxPlotResource(Resource):
         for cluster in df['CLUSTER'].unique():
             name = 'Cluster ' + str(cluster)
             values = df[df['CLUSTER'] == cluster]['TOTAL_BILL'].tolist()
-            items.append({"name": name, "y": values})
+            items.append({"name": name, "y": values, "type": 'box'})
 
         return {"status":"success", "data": items}, 200
