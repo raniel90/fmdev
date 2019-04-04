@@ -2,7 +2,7 @@ export class PageConfig {
 	public defaults: any = {
 		dashboard: {
 			page: {
-				'title': 'Dashboard',
+				'title': 'Oddity',
 				'desc': 'Informações Analíticas'
 			},
 		},

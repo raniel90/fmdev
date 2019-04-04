@@ -397,7 +397,7 @@ export class MenuConfig {
 			self: {},
 			items: [
 				{
-					title: 'Dashboard',
+					title: 'Oddity',
 					root: true,
 					icon: 'flaticon2-architecture-and-city',
 					page: 'dashboard',
